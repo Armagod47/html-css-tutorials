@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(213, 233, 251);
+}
+
+.grid-box {
+  border: 1px solid #000;
+  background-color: #006d77;
+  color: white;
+  text-align: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  /* grid-template-columns: 250px auto 250px;
+  grid-template-rows: 100px 200px; */
+  /* ShortHand : SH -- rows first / column */
+  grid-template: 100px 100px / 250px auto 250px;
+  /* grid-template: 100px 100px / repeat(12, 50px); */
+}
+
+/* Default Behaviour == 1,2 are grid/column lines*/
+/* .grid-item-1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2;
+} */
+
+.grid-item-2 {
+  /* grid-row-start: 2;
+  grid-row-end: 4;
+  grid-column-start: 1;
+  grid-column-end: 2; */
+  /* SH row start/col start/row end/col end*/
+  grid-area: 2 / 1 /4 /2;
+}
+
+/* Moving item 5 to item 1 place and the rest will reorder itself */
+/* When item gets shifted to new row its called implicit grid */
+.grid-item-5 {
+  /* grid-row-start: 1;
+  grid-row-end: 2;
+  grid-column-start: 1;
+  grid-column-end: 2; */
+  /* SH */
+  grid-row: 1 / 2;
+  grid-column: 1 / 3;
+}
+
+/* .grid-item-1 {
+  grid-row: 1 / span 2;
+} */
+
+/* Naming Grid Areas a=item1,b=item2 and so ontill f=item6, . = leave col free*/
+.grid-container {
+  grid-template-areas:
+    "e e a"
+    "b c a"
+    "b d f";
+}
+
+.grid-item-1 {
+  grid-area: a;
+}
+.grid-item-2 {
+  grid-area: b;
+}
+.grid-item-3 {
+  grid-area: c;
+}
+.grid-item-4 {
+  grid-area: d;
+}
+.grid-item-5 {
+  grid-area: e;
+}
+.grid-item-6 {
+  grid-area: f;
+}
